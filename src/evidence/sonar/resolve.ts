@@ -160,7 +160,7 @@ export async function checkDeclaration(
   stored: StoredSonarMapping | undefined,
   now: Date
 ): Promise<DeclarationCheck> {
-  if (stored !== undefined && stored.repository !== undefined) {
+  if (stored?.repository !== undefined) {
     if (!namesRepository(stored.repository, repository)) {
       return { note: `the declared project ${key} is mapped to ${stored.repository}` };
     }

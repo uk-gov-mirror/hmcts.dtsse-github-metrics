@@ -167,7 +167,7 @@ export function delta(measure: string, comparison: Comparison, baseline: number,
 
 /** Compares one metric between the two windows, or reports nothing where either observed no value. */
 export function metricDelta(baseline: TrendMetric | undefined, period: TrendMetric): TrendDelta | undefined {
-  if (baseline === undefined || baseline.value === undefined || period.value === undefined) {
+  if (baseline?.value === undefined || period.value === undefined) {
     return undefined;
   }
   return delta(period.metric, metricComparison(period), baseline.value, period.value);

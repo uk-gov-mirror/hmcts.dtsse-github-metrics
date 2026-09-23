@@ -104,7 +104,7 @@ export async function builtReport<RowT>(organization: string, weeks: number, bui
   const revision = await currentRevision();
   const key = keyOf(organization, kind, weeks);
   const held = entries.get(key);
-  if (held !== undefined && held.revision === revision) {
+  if (held?.revision === revision) {
     // THE ONE CAST IN THIS FILE, and it is what a map keyed on `ReportKind` costs. The stored promise cannot be
     // typed as the caller's row, because what ties a key to a shape is `keyOf` and every caller reaches it through
     // this function alone. A caller asking for a kind under the wrong type is the failure this cannot catch; there

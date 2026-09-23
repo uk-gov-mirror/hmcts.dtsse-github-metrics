@@ -1097,7 +1097,7 @@ async function runCollectOrg(configuration: Configuration, argv: Arguments): Pro
       return false;
     }
     const fact = codeowners.get(repository);
-    if (fact !== undefined && fact.refusal !== undefined) {
+    if (fact?.refusal !== undefined) {
       return false;
     }
     return !openAfterCodeowners.has(repository) || directAdmins.has(repository);

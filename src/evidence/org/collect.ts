@@ -568,7 +568,7 @@ function readOwnershipRepository(organization: string, repository: string, value
   const files: CodeownersOwners[] = [];
   for (const [at, path] of CodeownersPaths.entries()) {
     const blob = entry.files[at];
-    if (blob == null || blob.text == null) {
+    if (blob?.text == null) {
       continue;
     }
     if (blob.isTruncated === true) {
